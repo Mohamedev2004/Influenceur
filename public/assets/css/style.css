@@ -10047,7 +10047,7 @@ input::placeholder {
     padding: 15px 25px;
     background-color: #9C04FF;
     border-radius: 5px;
-    color:white
+    color: white;
 }
 
 .p-30 {
@@ -10060,7 +10060,18 @@ input::placeholder {
     margin-top: 100px;
 }
 
+.dashboard__rightt {
+    padding: 30px;
+    width: 100%;
+    margin-top: 100px;
+    margin-left: 380px;
+}
+
 @media screen and (max-width: 992px) {
+    .dashboard__rightt{
+        margin-left: 20px;
+        width: 100%;
+    }
     .dashboard__right {
         margin-left: 0;
         width: 100%;
@@ -10068,6 +10079,9 @@ input::placeholder {
 }
 
 @media screen and (max-width: 576px) {
+    .dashboard__rightt{
+        padding: 20px;
+    }
     .dashboard__right {
         padding: 20px;
     }

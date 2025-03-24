@@ -64,6 +64,10 @@ Route::get('/Influencer/Dashboard', function () {
     return view('influencer-dashboard.index');
 })->name('influencerdashboard');
 
+Route::get('/Admin/Dashboard', function () {
+    return view('admin.index');
+})->name('admindashboard');
+
 
 
 require __DIR__.'/auth.php';
