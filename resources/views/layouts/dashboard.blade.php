@@ -83,6 +83,7 @@
     <!-- all plugin js -->
     <script src="{{asset('assets/js/plugins.min.js')}}"></script>
     <script src="{{asset('assets/js/main.js')}}"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         document.getElementById("file").addEventListener("change", function () {
             let fileName = this.files.length > 0 ? this.files[0].name : "Aucune image sélectionnée";

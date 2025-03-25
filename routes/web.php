@@ -68,13 +68,21 @@ Route::get('/Admin/Dashboard', function () {
     return view('admin.index');
 })->name('admindashboard');
 
-Route::get('/Admin/Influencer-List', function () {
+Route::get('/Admin/Dashboard/Influencer-List', function () {
     return view('admin.influencer-list');
 })->name('influencerlist');
 
-Route::get('/Admin/Brand-List', function () {
+Route::get('/Admin/Dashboard/Brand-List', function () {
     return view('admin.brand-list');
 })->name('brandlist');
+
+Route::get('/Admin/Dashboard/Influencer-status', function () {
+    return view('admin.influencer-status');
+})->name('influencerstatus');
+
+Route::get('/Admin/Dashboard/Brand-status', function () {
+    return view('admin.brand-status');
+})->name('brandstatus');
 
 
 
