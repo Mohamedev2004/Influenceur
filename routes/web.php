@@ -69,31 +69,31 @@ Route::get('/Admin/Dashboard', function () {
 })->name('admindashboard');
 
 Route::get('/Admin/Dashboard/Influencer-List', function () {
-    return view('admin.influencer-list');
+    return view('admin.influencer.influencer-list');
 })->name('influencerlist');
 
 Route::get('/Admin/Dashboard/Brand-List', function () {
-    return view('admin.brand-list');
+    return view('admin.brand.brand-list');
 })->name('brandlist');
 
 Route::get('/Admin/Dashboard/Influencer-status', function () {
-    return view('admin.influencer-status');
+    return view('admin.influencer.influencer-status');
 })->name('influencerstatus');
 
 Route::get('/Admin/Dashboard/Brand-status', function () {
-    return view('admin.brand-status');
+    return view('admin.brand.brand-status');
 })->name('brandstatus');
 
 Route::get('/Admin/Dashboard/Influencers-messages', function () {
-    return view('admin.influencer-message');
+    return view('admin.influencer.influencer-message');
 })->name('influencermessage');
 
 Route::get('/Admin/Dashboard/Brands-messages', function () {
-    return view('admin.brand-message');
+    return view('admin.brand.brand-message');
 })->name('brandmessage');
 
 Route::get('/Admin/Dashboard/Sponsors-messages', function () {
-    return view('admin.sponsoring-message');
+    return view('admin.sponsor.sponsoring-message');
 })->name('sponsormessage');
 
 
