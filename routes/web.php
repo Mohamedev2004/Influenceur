@@ -96,5 +96,17 @@ Route::get('/Admin/Dashboard/Sponsors-messages', function () {
     return view('admin.sponsor.sponsoring-message');
 })->name('sponsormessage');
 
+Route::get('/Admin/Dashboard/Pack-list', function () {
+    return view('admin.packs.pack-list');
+})->name('packlist');
+
+Route::get('/Admin/Dashboard/Pack-add', function () {
+    return view('admin.packs.pack-add');
+})->name('packadd');
+
+Route::get('/Admin/Dashboard/Pack-edit', function () {
+    return view('admin.packs.pack-edit');
+})->name('packedit');
+
 
 require __DIR__.'/auth.php';

@@ -40,15 +40,6 @@
                         <div class="rts__menu d-flex gap-5 gap-lg-4 gap-xl-5 align-items-center">
 
                             <div class="header__right__btn d-flex align-items-center gap-30">
-                                <div class="user__info ">
-                                    <div class="d-flex gap-3 align-items-center pointer" data-bs-toggle="dropdown">
-                                        <div class="user__image if__employer">
-                                            <img class="rounded-5" width="48" height="48" src="{{asset('assets/img/icon/google-small.svg')}}" alt="">
-                                        </div>
-                                        <div class="user__name d-none d-xl-block">
-                                        </div>
-                                    </div>
-                                </div>
                                 <a href="employer-dash-jobpost.html" class="small__btn d-none d-sm-flex d-xl-flex fill__btn border-6 font-xs" aria-label="Job Posting Button">Se Déconnecter</a>
                                 <button class="d-md-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas"><i class="fa-sharp fa-regular fa-bars"></i></button>
                             </div>

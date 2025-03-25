@@ -80,14 +80,20 @@
                                         </select>
                                     </div>
                                     <div class="rt-input-group">
-                                        <label for="images"> Images (Max: 3)</label>
-                                        <input type="file" id="images" name="images[]" class="form-control" accept="image/*" multiple>
+                                        <label for="images" class="block text-gray-700 mb-2">Images (Max: 3)</label>
+                                        <input type="file" id="images" name="images[]" class="hidden" accept="image/*" multiple>
+                                        <label for="images" class="cursor-pointer bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600 transition">
+                                            Choisir vos images
+                                        </label>
                                     </div>
                                 </div>
                                 <div class="row row-cols-sm-2 row-cols-1 g-3">
                                     <div class="rt-input-group">
-                                        <label for="images">Votre Video</label>
-                                        <input type="file" id="video" name="video" class="form-control" accept="video/*" multiple>
+                                        <label for="video" class="block text-gray-700 mb-2">Video</label>
+                                        <input type="file" id="video" name="video" class="hidden" accept="video/*" multiple>
+                                        <label for="video" class="cursor-pointer bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600 transition">
+                                            Choisir une video
+                                        </label>
                                     </div>
                                 </div>
 
