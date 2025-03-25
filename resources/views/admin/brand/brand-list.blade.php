@@ -8,11 +8,15 @@
     <div class="dash__content ">
         <!-- sidebar menu -->
         <div class="sidebar__menu d-md-block d-lg-none">
-            <div class="sidebar__action"><i class="fa-sharp fa-regular fa-bars"></i> Sidebar</div>
+            <div class="sidebar__action"> Sidebar</div>
         </div>
         <!-- sidebar menu end -->
 
         <h6 class="fw-semibold mb-30">Liste des Marques</h6>
+        <div class="mb-4">
+            <input type="text" id="searchInput" placeholder="Rechercher un influenceur..."
+                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500">
+        </div>
         <div class="candidate__filter__area">
             <h6 class="font-20">Statistiques</h6>
             <div class="candidate__filter">

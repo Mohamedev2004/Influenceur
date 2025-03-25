@@ -108,5 +108,17 @@ Route::get('/Admin/Dashboard/Pack-edit', function () {
     return view('admin.packs.pack-edit');
 })->name('packedit');
 
+Route::get('/Admin/Dashboard/Feature-list', function () {
+    return view('admin.features.feature-list');
+})->name('featurelist');
+
+Route::get('/Admin/Dashboard/Feature-add', function () {
+    return view('admin.features.feature-add');
+})->name('featureadd');
+
+Route::get('/Admin/Dashboard/Feature-edit', function () {
+    return view('admin.features.feature-edit');
+})->name('featureedit');
+
 
 require __DIR__.'/auth.php';

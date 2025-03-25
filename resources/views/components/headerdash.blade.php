@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="rts__logo">
-                            <a href="index.html">
+                            <a href="{{route('welcome')}}">
                             <img class="logo__image" src="{{asset('assets/img/logo/logo.svg')}}" width="160" height="40" alt="logo">
                         </a>
                         </div>
@@ -40,8 +40,8 @@
                         <div class="rts__menu d-flex gap-5 gap-lg-4 gap-xl-5 align-items-center">
 
                             <div class="header__right__btn d-flex align-items-center gap-30">
-                                <a href="employer-dash-jobpost.html" class="small__btn d-none d-sm-flex d-xl-flex fill__btn border-6 font-xs" aria-label="Job Posting Button">Se Déconnecter</a>
-                                <button class="d-md-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas"><i class="fa-sharp fa-regular fa-bars"></i></button>
+                                <a href="" class="small__btn d-none d-sm-flex d-xl-flex fill__btn border-6 font-xs" aria-label="Job Posting Button">Se Déconnecter</a>
+                                <button class="d-md-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas"><i class="fa-solid fa-bars"></i></button>
                             </div>
                         </div>
                     </div>
