@@ -84,6 +84,17 @@ Route::get('/Admin/Dashboard/Brand-status', function () {
     return view('admin.brand-status');
 })->name('brandstatus');
 
+Route::get('/Admin/Dashboard/Influencers-messages', function () {
+    return view('admin.influencer-message');
+})->name('influencermessage');
+
+Route::get('/Admin/Dashboard/Brands-messages', function () {
+    return view('admin.brand-message');
+})->name('brandmessage');
+
+Route::get('/Admin/Dashboard/Sponsors-messages', function () {
+    return view('admin.sponsoring-message');
+})->name('sponsormessage');
 
 
 require __DIR__.'/auth.php';
