@@ -129,7 +129,7 @@
 
             <div class="col-lg-7 col-xl-8">
                 <div class="top__query mb-40 d-flex flex-wrap gap-4 gap-xl-0 justify-content-between align-items-center">
-                    <span class="text-dark font-20 fw-medium">Affichage de 8 marques par page</span>
+                    <span class="text-dark font-20 fw-medium">Affichage de 8 influenceur(euse) par page</span>
                     <div class="d-flex flex-wrap align-items-center gap-4">
                         <form action="#" class="category-select">
                             <div class="position-relative">

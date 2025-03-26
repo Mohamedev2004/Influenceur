@@ -83,89 +83,60 @@
             </div>
 
             <!-- Applied Jobs -->
-            <div class="applied__jobs">
-                <h6 class="fw-medium mb-30">Recent Applicants</h6>
-                <div class="short__list__candidate">
-                
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/1.svg')}}" alt="">
+            <div class="dashboard__container">
+                <!-- First Section -->
+                <div class="applied__jobs">
+                    <h6 class="fw-medium mb-30">Les Influenceurs Récents</h6>
+                    <div class="short__list__candidate">
+                        <!-- Single item -->
+                        <div class="single__shortlist__item">
+                            <div class="author__info">
+                                <div class="author__meta">
+                                    <div class="author__image">
+                                        <img src="{{asset('assets/img/author/1.svg')}}" alt="">
+                                    </div>
+                                    <div class="author__name">
+                                        <h6 class="fw-semibold mb-1">Morchid el Alaoui</h6>
+                                        <p class="mb-0">Web Designer</p>
+                                    </div>
                                 </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Jonathon</h6>
-                                    <p class="mb-0">Web Designer</p>
+                                <div class="author__info__list">
+                                    <span> 2 Month Ago</span>
+                                    <button class="action__click">Actif</button>
                                 </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> 2 Month Ago</span>
-                                <button class="action__click">Approved</button>
                             </div>
                         </div>
+                        <!-- Repeat Other Items -->
                     </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/2.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Jonathon</h6>
-                                    <p class="mb-0">Web Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> 2 Month Ago</span>
-                                <button class="action__click">Approved</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/3.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Jonathon</h6>
-                                    <p class="mb-0">Web Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> DD/MM/YY</span>
-                                <button class="action__click">Approved</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single item end -->
-                     <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/4.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Jonathon</h6>
-                                    <p class="mb-0">Web Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> 2 Month Ago</span>
-                                <button class="action__click">Approved</button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single item end -->
+                </div>
 
+                <!-- Second Section (Duplicate) -->
+                <div class="applied__jobs">
+                    <h6 class="fw-medium mb-30">Les Marques Récentes</h6>
+                    <div class="short__list__candidate">
+                        <!-- Single item -->
+                        <div class="single__shortlist__item">
+                            <div class="author__info">
+                                <div class="author__meta">
+                                    <div class="author__image">
+                                        <img src="{{asset('assets/img/author/1.svg')}}" alt="">
+                                    </div>
+                                    <div class="author__name">
+                                        <h6 class="fw-semibold mb-1">Morchid el Alaoui</h6>
+                                        <p class="mb-0">Web Designer</p>
+                                    </div>
+                                </div>
+                                <div class="author__info__list">
+                                    <span> 2 Month Ago</span>
+                                    <button class="action__click">Actif</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Repeat Other Items -->
+                    </div>
                 </div>
             </div>
+
             <!-- Applied Jobs end -->
         </div>
         <div class="d-flex justify-content-center mt-30">

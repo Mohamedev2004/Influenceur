@@ -55,7 +55,7 @@
                             </div>
                         </div>
 
-                        <div class="">
+                        <div class="mt-4">
                             <a href="{{ route('brandstatus') }}" class="action__item">
                                 <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
                             </a>

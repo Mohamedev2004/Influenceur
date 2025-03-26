@@ -206,6 +206,29 @@ input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px white inset;
 }
 
+.dashboard__container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.applied__jobs {
+    width: 48%;
+    min-width: 300px;
+}
+
+@media (max-width: 768px) {
+    .dashboard__container {
+        flex-direction: column;
+    }
+
+    .applied__jobs {
+        width: 100%;
+    }
+}
+
+
 input[type=search]::-webkit-search-cancel-button,
 input[type=search]::-webkit-search-decoration,
 input[type=search]::-webkit-search-results-button,
@@ -7712,7 +7735,7 @@ input::placeholder {
     opacity: 0;
     transition: var(--transition);
     z-index: -1;
-    background: linear-gradient(228.26deg, #FEF2EB 0%, #F1F1F1 46.25%, #E4E0EA 99.86%);
+    background: linear-gradient(228.34deg, #E9D5FF 0%, #D8B4FE 46.31%, #C4B5FD 100%);
     border-radius: 10px;
 }
 
