@@ -52,6 +52,7 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo/logo.svg') }}">
 
     @yield('styles') <!-- To allow adding extra styles in other views -->
 </head>

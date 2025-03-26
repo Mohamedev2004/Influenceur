@@ -48,6 +48,7 @@
     <!-- Custom Fonts and Icons -->
     <link rel="stylesheet" href="{{ asset('assets/fonts/icon/css/rt-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome/fontawesome.min.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo/logo.svg') }}">
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins.min.css') }}">
