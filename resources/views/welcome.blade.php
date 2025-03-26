@@ -213,7 +213,7 @@
             <div class="row justify-content-center mb-60">
                 <div class="col-xl-6 col-lg-10">
                     <div class="rts__section__content text-center wow animated fadeInUp">
-                        <h3 class="rts__section__title section__mb">Il y a plus que 100 Marque+ sur Cocollab.</h3>
+                        <h3 class="rts__section__title section__mb">Plus que 100+ Marque sur Cocollab.</h3>
                         <p class="rts__section__desc">Découvrez plus de 100 offres d'emploi sur Jobpath et trouvez celle qui correspond à votre profil. De nouvelles opportunités vous attendent !</p>
                     </div>
                 </div>
