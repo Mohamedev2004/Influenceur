@@ -12,17 +12,17 @@
         </div>
         <!-- sidebar menu end -->
         <div class="max-w-2xl mx-auto mt-10 bg-white p-10 rounded-lg shadow-md">
-            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Modifier le type de Collaboration</h2>
+            <h2 class="text-2xl font-semibold mb-6 text-gray-800">Modifier le domaine d'Influenceur</h2>
             
             <form action="" method="POST">
                 @csrf
                 
                 <!-- Nom du Pack -->
                 <div class="mb-6">
-                    <label for="name" class="block text-lg font-medium text-gray-700 mb-2">Type de Collaboration</label>
+                    <label for="name" class="block text-lg font-medium text-gray-700 mb-2">Domaine d'Influenceur</label>
                     <input type="text" id="name" name="name" required
                         class="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        placeholder="Entrez le type de collaboration">
+                        placeholder="Entrez le domaine d'influenceur">
                 </div>
 
                 <!-- Bouton de soumission -->

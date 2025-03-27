@@ -132,5 +132,17 @@ Route::get('/Admin/Dashboard/Collaboration-edit', function () {
     return view('admin.collaborations.collaboration-edit');
 })->name('collaborationedit');
 
+Route::get('/Admin/Dashboard/Influencer-sector-list', function () {
+    return view('admin.influencer-sector.influencer-sector-list');
+})->name('influencersectorlist');
+
+Route::get('/Admin/Dashboard/Influencer-sector-add', function () {
+    return view('admin.influencer-sector.influencer-sector-add');
+})->name('influencersectoradd');
+
+Route::get('/Admin/Dashboard/Influencer-sector-edit', function () {
+    return view('admin.influencer-sector.influencer-sector-edit');
+})->name('influencersectoredit');
+
 
 require __DIR__.'/auth.php';
