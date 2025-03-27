@@ -8,7 +8,7 @@
     <div class="dash__content ">
         <!-- sidebar menu -->
         <div class="sidebar__menu d-md-block d-lg-none">
-            <div class="sidebar__action"> Sidebar</div>
+            <div class="sidebar__action"><i class="fa-solid fa-bars"></i> Sidebar</div>
         </div>
         <!-- sidebar menu end -->
         <div class="max-w-2xl mx-auto mt-10 bg-white p-10 rounded-lg shadow-md">

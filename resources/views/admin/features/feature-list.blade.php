@@ -8,7 +8,7 @@
     <div class="dash__content ">
         <!-- sidebar menu -->
         <div class="sidebar__menu d-md-block d-lg-none">
-            <div class="sidebar__action"> Sidebar</div>
+            <div class="sidebar__action"><i class="fa-solid fa-bars"></i> Sidebar</div>
         </div>
         <div class="flex items-center justify-right">
             <a href="{{route('featureadd')}}">
