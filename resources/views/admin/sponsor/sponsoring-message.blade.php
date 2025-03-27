@@ -24,7 +24,7 @@
                 <tbody>
                     <!-- Demande de Sponsoring 1 -->
                     <tr class="hover:bg-gray-100">
-                        <td class="border border-gray-300 px-4 py-2">Paul Dupont</td>
+                        <td class="border border-gray-300 px-4 py-2">Paul Dupont</td>6
                         <td class="border border-gray-300 px-4 py-2">paul.dupont@email.com</td>
                         <td class="border border-gray-300 px-4 py-2">+33 6 12 34 56 78</td>
                         <td class="border border-gray-300 px-4 py-2">
