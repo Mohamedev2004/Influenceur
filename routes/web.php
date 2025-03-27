@@ -144,5 +144,17 @@ Route::get('/Admin/Dashboard/Influencer-sector-edit', function () {
     return view('admin.influencer-sector.influencer-sector-edit');
 })->name('influencersectoredit');
 
+Route::get('/Admin/Dashboard/Brand-sector-list', function () {
+    return view('admin.brand-sector.brand-sector-list');
+})->name('brandsectorlist');
+
+Route::get('/Admin/Dashboard/Brand-sector-add', function () {
+    return view('admin.brand-sector.brand-sector-add');
+})->name('brandsectoradd');
+
+Route::get('/Admin/Dashboard/Brand-sector-edit', function () {
+    return view('admin.brand-sector.brand-sector-edit');
+})->name('brandsectoredit');
+
 
 require __DIR__.'/auth.php';
