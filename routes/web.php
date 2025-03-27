@@ -120,5 +120,17 @@ Route::get('/Admin/Dashboard/Feature-edit', function () {
     return view('admin.features.feature-edit');
 })->name('featureedit');
 
+Route::get('/Admin/Dashboard/Collaboration-list', function () {
+    return view('admin.collaborations.collaboration-list');
+})->name('collaborationlist');
+
+Route::get('/Admin/Dashboard/Collaboration-add', function () {
+    return view('admin.collaborations.collaboration-add');
+})->name('collaborationadd');
+
+Route::get('/Admin/Dashboard/Collaboration-edit', function () {
+    return view('admin.collaborations.collaboration-edit');
+})->name('collaborationedit');
+
 
 require __DIR__.'/auth.php';
