@@ -81,7 +81,7 @@
     </div>
     <!-- THEME PRELOADER END -->
     <button type="button" class="rts__back__top" id="rts-back-to-top">
-        <img src="assets/img/icon/arrow.svg" alt="">
+        <i class="fas fa-arrow-up"></i>
     </button>
     <!-- all plugin js -->
     <script src="{{asset('assets/js/plugins.min.js')}}"></script>
