@@ -156,5 +156,17 @@ Route::get('/Admin/Dashboard/Brand-sector-edit', function () {
     return view('admin.brand-sector.brand-sector-edit');
 })->name('brandsectoredit');
 
+Route::get('/Admin/Dashboard/Partner-list', function () {
+    return view('admin.partners.partner-list');
+})->name('partnerlist');
+
+Route::get('/Admin/Dashboard/Partner-add', function () {
+    return view('admin.partners.partner-add');
+})->name('partneradd');
+
+Route::get('/Admin/Dashboard/Partner-edit', function () {
+    return view('admin.partners.partner-edit');
+})->name('partneredit');
+
 
 require __DIR__.'/auth.php';
