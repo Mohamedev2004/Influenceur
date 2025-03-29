@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,12 +15,14 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+    use \Mcamara\LaravelLocalization\Traits\LoadsTranslatedCachedRoutes;
 
     /**
      * Bootstrap any application services.
      */
     public function boot(): void
     {
-        //
+        RouteServiceProvider::loadCachedRoutesUsing(fn() => $this->loadCachedRoutes());
+        Paginator::useBootstrapFive();
     }
 }

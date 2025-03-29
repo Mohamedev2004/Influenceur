@@ -76,69 +76,53 @@
 
     <div class="monthly__pricing active">
         <div class="row g-30">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-5 col-xl-4 col-md-6">
                 <div class="rts__pricing__box">
                     <div class="h6 fw-medium lh-1 mb-2 text-primary">Tag</div>
                     <div class="plan__price lh-1 mb-40"><span class="h2">Nom</span></div>
                     <ul class="plan__feature">
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
                     </ul>
-                    <a href="#" class="rts__btn pricing__btn no__fill__btn mt-40">S'abonner</a>
+                    <a href="#" class="rts__btn pricing__btn  no__fill__btn mt-40">S'abonner</a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-5 col-xl-4 col-md-6">
                 <div class="rts__pricing__box">
                     <div class="h6 fw-medium lh-1 mb-2 text-primary">Tag</div>
                     <div class="plan__price lh-1 mb-40"><span class="h2">Nom</span></div>
                     <ul class="plan__feature">
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
                     </ul>
-                    <a href="#" class="rts__btn pricing__btn no__fill__btn mt-40">S'abonner</a>
+                    <a href="#" class="rts__btn pricing__btn  no__fill__btn mt-40">S'abonner</a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-5 col-xl-4 col-md-6">
                 <div class="rts__pricing__box">
                     <div class="h6 fw-medium lh-1 mb-2 text-primary">Tag</div>
                     <div class="plan__price lh-1 mb-40"><span class="h2">Nom</span></div>
                     <ul class="plan__feature">
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
+                        <li> Benefice</li>
                     </ul>
-                    <a href="#" class="rts__btn pricing__btn no__fill__btn mt-40">S'abonner</a>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="rts__pricing__box">
-                    <div class="h6 fw-medium lh-1 mb-2 text-primary">Tag</div>
-                    <div class="plan__price lh-1 mb-40"><span class="h2">Nom</span></div>
-                    <ul class="plan__feature">
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                        <li>Benefice</li>
-                    </ul>
-                    <a href="#" class="rts__btn pricing__btn no__fill__btn mt-40">S'abonner</a>
+                    <a href="#" class="rts__btn pricing__btn  no__fill__btn mt-40">S'abonner</a>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 </div>
 <!-- pricing section end -->

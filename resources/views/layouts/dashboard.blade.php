@@ -9,19 +9,19 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link rel="canonical" href="">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <!-- Nice Select CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.css">
     <!-- Latest FontAwesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    
+
     <!-- jQuery (Required for Nice Select) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+
     <!-- Nice Select JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
 
@@ -42,13 +42,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
-    
+
     <title>Cocollab</title>
 
     <!-- Custom Fonts and Icons -->
     <link rel="stylesheet" href="{{ asset('assets/fonts/icon/css/rt-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome/fontawesome.min.css') }}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/logo/logo.svg') }}">
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/plugins.min.css') }}">

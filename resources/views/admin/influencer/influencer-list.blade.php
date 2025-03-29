@@ -22,553 +22,156 @@
             <h6 class="font-20">Statistiques</h6>
             <div class="candidate__filter">
                 <ul class="candidate__filter__shorting" id="myTab" role="tablist">
+                    <!-- Total Count -->
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Total: 10</button>
+                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                            Total: {{ $total }}
+                        </button>
                     </li>
+
+                    <!-- Active Count -->
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Actif: 6</button>
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                            Actif: {{ $active }}
+                        </button>
                     </li>
+
+                    <!-- Inactive Count -->
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Innactif: 4</button>
+                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                            Inactif: {{ $inactive }}
+                        </button>
                     </li>
                 </ul>
             </div>
         </div>
 
+
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                <div class="short__list__candidate">
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/1.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
+                @foreach($influencers as $influencer)
+                <div class="single_shortlist_item flex items-start space-x-6 p-4 border-b border-gray-200">
+                    <!-- Image Section -->
+                    <div class="author__image w-24 h-24 rounded-full overflow-hidden">
+                        <img src="{{ asset($influencer->profile_image) }}" alt="{{ $influencer->influencerName }}" class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Information Section -->
+                    <div class="author__info flex-1">
+                        <div class="author__meta">
+                            <div class="author__name max-w-xs">
+                                <h6 class="fw-semibold text-lg font-semibold text-gray-800">{{ $influencer->influencerName }}</h6>
+                                <p class="text-sm text-gray-500">{{ $influencer->sector->name }}</p>
                             </div>
                         </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
+                        <div class="author_info_list mt-2 text-sm text-gray-600">
+                            <span>Sexe: {{ $influencer->sexe }}</span><br>
+                            <span>Statut: {{ $influencer->user->status }}</span>
                         </div>
                     </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/1.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
 
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
+                    <!-- Buttons Section -->
+                    <div class="flex flex-col space-y-2">
+                        <a href="{{ route('influencerstatus', $influencer->id) }}" class="action__item">
+                            <button class="bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700 transition-all ease-in-out duration-200 w-full">
+                                Modifier
+                            </button>
+                        </a>
+                        <form action="{{ route('influencers.destroy', $influencer->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-all ease-in-out duration-200 w-full">
+                                Supprimer
+                            </button>
+                        </form>
                     </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/1.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/1.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/1.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/1.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/1.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/1.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single item end -->
-
-                    <!-- pagination -->
-                    <div class="rts__pagination d-block mx-auto pt-40 max-content">
-                        <ul class="d-flex gap-2">
-                            <li><a href="#" class="inactive"><i class="rt-chevron-left"></i></a></li>
-                            <li><a class="active" href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#"><i class="rt-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
-                    <!-- pagination end -->
-
                 </div>
+                @endforeach
             </div>
             <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                <div class="short__list__candidate">
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/2.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
+                @foreach($activeInfluencers as $influencer)
+                <div class="single_shortlist_item flex items-start space-x-6 p-4 border-b border-gray-200">
+                    <!-- Image Section -->
+                    <div class="author__image w-24 h-24 rounded-full overflow-hidden">
+                        <img src="{{ asset($influencer->profile_image) }}" alt="{{ $influencer->influencerName }}" class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Information Section -->
+                    <div class="author__info flex-1">
+                        <div class="author__meta">
+                            <div class="author__name max-w-xs">
+                                <h6 class="fw-semibold text-lg font-semibold text-gray-800">{{ $influencer->influencerName }}</h6>
+                                <p class="text-sm text-gray-500">{{ $influencer->sector->name }}</p>
                             </div>
                         </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
+                        <div class="author_info_list mt-2 text-sm text-gray-600">
+                            <span>Sexe: {{ $influencer->sexe }}</span><br>
+                            <span>Statut: {{ $influencer->user->status }}</span>
                         </div>
                     </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/2.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
 
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
+                    <!-- Buttons Section -->
+                    <div class="flex flex-col space-y-2">
+                        <a href="{{ route('influencerstatus', $influencer->id) }}" class="action__item">
+                            <button class="bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700 transition-all ease-in-out duration-200 w-full">
+                                Modifier
+                            </button>
+                        </a>
+                        <form action="{{ route('influencers.destroy', $influencer->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-all ease-in-out duration-200 w-full">
+                                Supprimer
+                            </button>
+                        </form>
                     </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/2.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/2.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single item end -->
-                   <!-- single item -->
-                   <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/2.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/2.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single item end -->
                 </div>
+                @endforeach
             </div>
             <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-                <div class="short__list__candidate">
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/2.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
+                @foreach($inactiveInfluencers as $influencer)
+                <div class="single_shortlist_item flex items-start space-x-6 p-4 border-b border-gray-200">
+                    <!-- Image Section -->
+                    <div class="author__image w-24 h-24 rounded-full overflow-hidden">
+                        <img src="{{ asset($influencer->profile_image) }}" alt="{{ $influencer->influencerName }}" class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- Information Section -->
+                    <div class="author__info flex-1">
+                        <div class="author__meta">
+                            <div class="author__name max-w-xs">
+                                <h6 class="fw-semibold text-lg font-semibold text-gray-800">{{ $influencer->influencerName }}</h6>
+                                <p class="text-sm text-gray-500">{{ $influencer->sector->name }}</p>
                             </div>
                         </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
+                        <div class="author_info_list mt-2 text-sm text-gray-600">
+                            <span>Sexe: {{ $influencer->sexe }}</span><br>
+                            <span>Statut: {{ $influencer->user->status }}</span>
                         </div>
                     </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/2.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
 
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
+                    <!-- Buttons Section -->
+                    <div class="flex flex-col space-y-2">
+                        <a href="{{ route('influencerstatus', $influencer->id) }}" class="action__item">
+                            <button class="bg-purple-600 text-white py-2 px-4 rounded-md hover:bg-purple-700 transition-all ease-in-out duration-200 w-full">
+                                Modifier
+                            </button>
+                        </a>
+                        <form action="{{ route('influencers.destroy', $influencer->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-all ease-in-out duration-200 w-full">
+                                Supprimer
+                            </button>
+                        </form>
                     </div>
-                    <!-- single item end -->
-                    <!-- single item -->
-                    <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/2.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single item end -->
-                   <!-- single item -->
-                   <div class="single__shortlist__item">
-                        <div class="author__info">
-                            <div class="author__meta">
-                                <div class="author__image">
-                                    <img src="{{asset('assets/img/author/2.svg')}}" alt="">
-                                </div>
-                                <div class="author__name">
-                                    <h6 class="fw-semibold mb-1">Mark Anthony</h6>
-                                    <p class="mb-0">UX Designer</p>
-                                </div>
-                            </div>
-                            <div class="author__info__list">
-                                <span> Newyork, USA</span>
-                                <span> 1 Year Ago</span>
-                            </div>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="{{ route('influencerstatus') }}" class="action__item">
-                                <button class="bg-purple-600 text-white py-1 px-3 rounded-md hover:bg-purple-900">Modifier</button>
-                            </a>
-                            <a href="">
-                                <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-900 mt-1">Supprimer</button>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- single item end -->
-
-
                 </div>
+                @endforeach
             </div>
         </div>
-        
+
+
+
     </div>
 
     <div class="d-flex justify-content-center mt-30">

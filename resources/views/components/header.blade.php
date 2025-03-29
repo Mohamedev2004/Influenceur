@@ -20,28 +20,39 @@
                                     <li class="space">
                                         <a href="{{route('influencers')}}" class="navigation__menu--item__link">Mission influenceur(euse)
                                         </a>
-                                        
+
                                     </li>
 
                                     <li class="space">
                                         <a href="{{route('brands')}}" class="navigation__menu--item__link">Marques & Entreprises
                                         </a>
-                                        
+
                                     </li>
 
 
                                     <li class="space">
                                         <a href="{{route('sponsoring')}}" class="navigation__menu--item__link">Sponsoring</a>
-                                        
+
                                     </li>
                                 </ul>
                             </nav>
                         </div>
 
                         <div class="header__right__btn d-flex gap-3">
-                            <a href="{{route('login')}}" class="small__btn d-none d-sm-flex no__fill__btn border-6 font-xs">Se Connecter</a>
 
-                            <button class="d-md-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas"><i class="fa-solid fa-bars"></i></button>
+                            @if (auth()->check() && auth()->user()->isInfluencer())
+                                <a href="{{ route('influencer_dashboard') }}" class="small__btn d-none d-sm-flex no__fill__btn border-6 font-xs">Profil</a>
+                            @endif
+
+                            @if (auth()->check() && auth()->user()->isBrand())
+                             {{-- {{ dd(auth()->user()) }} --}}
+                            <a href="{{ route('brand_display') }}" class="small__btn d-none d-sm-flex no__fill__btn border-6 font-xs">Profil</a>
+                        @endif
+                            @guest
+                                <a href="{{route('login')}}" class="small__btn d-none d-sm-flex no__fill__btn border-6 font-xs">Se Connecter</a>
+                            @endguest
+
+                            <button class="d-md-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas"><i class="fa-sharp fa-regular fa-bars"></i></button>
                         </div>
                     </div>
                 </div>

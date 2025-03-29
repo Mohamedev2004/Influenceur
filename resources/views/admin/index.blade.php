@@ -9,7 +9,7 @@
         <div class="dash__content">
             <!-- sidebar menu -->
             <div class="sidebar__menu d-md-block d-lg-none">
-                <div class="sidebar__action"><i class="fa-solid fa-bars"></i> Sidebar</div>
+                <div class="sidebar__action"> Sidebar</div>
             </div>
             <!-- sidebar menu end -->
             <div class="dash__overview">

@@ -17,11 +17,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $fillable = ['name', 'phone', 'email', 'password', 'role', 'status'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -44,5 +40,62 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+
+    public function hasRole($role){
+        return $this->getAttribute('role') === $role;
+    }
+
+    public function isAdmin(){
+        return $this->hasRole('admin');
+    }
+
+    public function isBrand()
+    {
+        return $this->hasRole('brand');
+    }
+    public function isInfluencer(){
+        return $this->hasRole('influencer');
+    }
+
+
+    public function redirectAuthUser(){
+        if ($this->isAdmin()) {
+            return redirect()->intended(route('admin_dashboard')); // Redirect to intended URL or admin dashboard
+        }
+
+        if ($this->isBrand()) {
+            return redirect()->intended(route('brand_dashboard')); // Redirect to intended URL or welcome page
+        }
+        if ($this->isInfluencer()) {
+            return redirect()->intended(route('influencer_welcome')); // Redirect to intended URL or welcome page
+        }
+    }
+
+
+    public function brand()
+    {
+        return $this->hasOne(Brand::class);
+    }
+
+    public function influencer()
+    {
+        return $this->hasOne(Influencer::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+    public function contactBrands()
+    {
+        return $this->hasMany(ContactBrand::class);
+    }
+
+    public function contactInfluencers()
+    {
+        return $this->hasMany(ContactInfluencer::class);
     }
 }

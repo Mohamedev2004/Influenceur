@@ -4,10 +4,17 @@
 
 <!-- content area -->
 <div class="dashboard__content d-flex">
-        
+
         <div class="dashboard__right">
             <div class="dash__content ">
+                @if (auth()->user()->status === 'Inactive')
+                <div id="alert-border-1" class="flex items-center p-4 mb-4 text-blue-800 border-t-4 border-blue-300 bg-blue-50 dark:text-blue-400 dark:bg-gray-800 dark:border-blue-800" role="alert">
+                    <div class="ms-3 text-sm font-medium">
+                        Votre compte n'est pas encore activé. Nous vous contacterons dès que possible.
+                    </div>
+                </div>
 
+                @else
                 <div class="my__profile__tab radius-16 bg-white">
                     <nav>
                         <div class="nav nav-tabs">
@@ -46,7 +53,7 @@
                                         <label for="phone">Phone</label>
                                         <input type="text" id="phone" placeholder="+880171234567" required>
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="row row-cols-sm-2 row-cols-1 g-3">
@@ -80,20 +87,14 @@
                                         </select>
                                     </div>
                                     <div class="rt-input-group">
-                                        <label for="images" class="block text-gray-700 mb-2">Images (Max: 3)</label>
-                                        <input type="file" id="images" name="images[]" class="hidden" accept="image/*" multiple>
-                                        <label for="images" class="cursor-pointer bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600 transition">
-                                            Choisir vos images
-                                        </label>
+                                        <label for="images"> Images (Max: 3)</label>
+                                        <input type="file" id="images" name="images[]" class="form-control" accept="image/*" multiple>
                                     </div>
                                 </div>
                                 <div class="row row-cols-sm-2 row-cols-1 g-3">
                                     <div class="rt-input-group">
-                                        <label for="video" class="block text-gray-700 mb-2">Video</label>
-                                        <input type="file" id="video" name="video" class="hidden" accept="video/*" multiple>
-                                        <label for="video" class="cursor-pointer bg-purple-500 text-white py-2 px-4 rounded-md hover:bg-purple-600 transition">
-                                            Choisir une video
-                                        </label>
+                                        <label for="images">Votre Video</label>
+                                        <input type="file" id="video" name="video" class="form-control" accept="video/*" multiple>
                                     </div>
                                 </div>
 
@@ -107,10 +108,12 @@
                         </div>
                         <button class="boutton" type="submit">Enregistrer</button>
                     </form>
-                    
+
                 </div>
 
-                
+                @endif
+
+
             </div>
             <div class="d-flex justify-content-center mt-30">
                 <p class="copyright" style="font-size: 15px !important;">Copyright © 2025 All Rights Reserved by cocollab</p>
@@ -123,7 +126,7 @@
 
 
     <x-canva />
-    
+
 
 
 

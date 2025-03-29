@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-
+{{-- @section('header')
+<x-header />
+@endsection --}}
 @section('content')
     <!-- banner area -->
     <section class="rts__banner home__one__banner pt-260">
@@ -19,15 +21,26 @@
                 <div class="rts__banner__wrapper d-flex gap-4 justify-content-between ">
                     <div class="rts__banner__content">
                         <h1 class="rts__banner__title wow animated fadeInUp ">
-                            Licenciez votre Patron, Vivez votre 
+                            Licenciez votre Patron, Vivez votre
                             <span>Passion</span>
                         </h1>
                         <p class="rts__banner__desc my-40 wow animated fadeInUp" data-wow-delay=".1s">
                             L'agence Influencer, nos mission vous attendent.
                         </p>
                         <div class="mybuttons">
-                            <button type="submit" class="signin" aria-label="Search" > <a style="color:white" href="{{route('register')}}">Rejoignez-nous</a> </button>
-                            <button type="submit" class="signin" aria-label="Search" > <a style="color:white" href="{{route('login')}}">Se Connecter</a> </button>
+
+                            @if (auth()->check() && auth()->user()->isInfluencer())
+                                <a href="{{ route('influencer_dashboard') }}" class="small__btn d-none d-sm-flex no__fill__btn border-6 font-xs">Profil</a>
+                            @endif
+
+                            @if (auth()->check() && auth()->user()->isBrand())
+                                <a href="{{ route('brand_dashboard') }}" class="small__btn d-none d-sm-flex no__fill__btn border-6 font-xs">Profil</a>
+                            @endif
+
+                            @guest
+                                <button type="submit" class="signin" aria-label="Search" > <a style="color:white" href="{{route('register')}}">Rejoignez-nous</a> </button>
+                                <button type="submit" class="signin" aria-label="Search" > <a style="color:white" href="{{route('login')}}">Se Connecter</a> </button>
+                            @endguest
                         </div>
                     </div>
                     <div class="rts__banner__image position-relative">
@@ -205,7 +218,7 @@
     </div>
     <!-- brand area end -->
 
-    
+
 
     <!-- current open position -->
     <section class="rts__section section__padding">
@@ -213,201 +226,100 @@
             <div class="row justify-content-center mb-60">
                 <div class="col-xl-6 col-lg-10">
                     <div class="rts__section__content text-center wow animated fadeInUp">
-                        <h3 class="rts__section__title section__mb">Plus que 100+ Marque sur Cocollab.</h3>
+                        <h3 class="rts__section__title section__mb">Il y a plus que 100 Marque+ sur Cocollab.</h3>
                         <p class="rts__section__desc">Découvrez plus de 100 offres d'emploi sur Jobpath et trouvez celle qui correspond à votre profil. De nouvelles opportunités vous attendent !</p>
                     </div>
                 </div>
             </div>
-            <div class="row g-30 wow animated fadeInUp" data-wow-delay=".0s">
-                <!-- single job -->
-                <div class="col-lg-6 col-xl-4 col-md-6">
-                    <div class="rts__job__card">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div class="company__icon">
-                                <img src="assets/img/home-1/company/apple.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="d-flex gap-3 mt-4 flex-wrap">
-                            <div class="d-flex gap-1 align-items-center">
-                                Localisation
-                            </div>
-                            <div class="d-flex gap-1 align-items-center">
-                                Domaine
-                            </div>
-                        </div>
-                        <div class="h6 job__title my-3">
-                            <a href="job-details-1.html" aria-label="job">
-                                    Senior UI Designer, Apple
-                                </a>
-                        </div>
-                        <p>Consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit mollitia eum ipsum.
-                        </p>
-                        <div class="job__tags d-flex flex-wrap gap-3 mt-4">
-                            <a href="#">Taille</a>
-                            <a href="#"> Type Collaboration</a>
-                            <a style="background-color:var(--rts-primary); color: white;" href="#">Voir Profil</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- single job end -->
-                <!-- single job -->
-                <div class="col-lg-6 col-xl-4 col-md-6">
-                    <div class="rts__job__card">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div class="company__icon">
-                                <img src="assets/img/home-1/company/apple.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="d-flex gap-3 mt-4 flex-wrap">
-                            <div class="d-flex gap-1 align-items-center">
-                                Localisation
-                            </div>
-                            <div class="d-flex gap-1 align-items-center">
-                                Domaine
-                            </div>
-                        </div>
-                        <div class="h6 job__title my-3">
-                            <a href="job-details-1.html" aria-label="job">
-                                    Senior UI Designer, Apple
-                                </a>
-                        </div>
-                        <p>Consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit mollitia eum ipsum.
-                        </p>
-                        <div class="job__tags d-flex flex-wrap gap-3 mt-4">
-                            <a href="#">Taille</a>
-                            <a href="#"> Type Collaboration</a>
-                            <a style="background-color:var(--rts-primary); color: white;" href="#">Voir Profil</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- single job end -->
-                <!-- single job -->
-                <div class="col-lg-6 col-xl-4 col-md-6">
-                    <div class="rts__job__card">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div class="company__icon">
-                                <img src="assets/img/home-1/company/apple.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="d-flex gap-3 mt-4 flex-wrap">
-                            <div class="d-flex gap-1 align-items-center">
-                                Localisation
-                            </div>
-                            <div class="d-flex gap-1 align-items-center">
-                                Domaine
-                            </div>
-                        </div>
-                        <div class="h6 job__title my-3">
-                            <a href="job-details-1.html" aria-label="job">
-                                    Senior UI Designer, Apple
-                                </a>
-                        </div>
-                        <p>Consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit mollitia eum ipsum.
-                        </p>
-                        <div class="job__tags d-flex flex-wrap gap-3 mt-4">
-                            <a href="#">Taille</a>
-                            <a href="#"> Type Collaboration</a>
-                            <a style="background-color:var(--rts-primary); color: white;" href="#">Voir Profil</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- single job end -->
-                <!-- single job -->
-                <div class="col-lg-6 col-xl-4 col-md-6">
-                    <div class="rts__job__card">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div class="company__icon">
-                                <img src="assets/img/home-1/company/apple.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="d-flex gap-3 mt-4 flex-wrap">
-                            <div class="d-flex gap-1 align-items-center">
-                                Localisation
-                            </div>
-                            <div class="d-flex gap-1 align-items-center">
-                                Domaine
-                            </div>
-                        </div>
-                        <div class="h6 job__title my-3">
-                            <a href="job-details-1.html" aria-label="job">
-                                    Senior UI Designer, Apple
-                                </a>
-                        </div>
-                        <p>Consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit mollitia eum ipsum.
-                        </p>
-                        <div class="job__tags d-flex flex-wrap gap-3 mt-4">
-                            <a href="#">Taille</a>
-                            <a href="#"> Type Collaboration</a>
-                            <a style="background-color:var(--rts-primary); color: white;" href="#">Voir Profil</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- single job end -->
-                <!-- single job -->
-                <div class="col-lg-6 col-xl-4 col-md-6">
-                    <div class="rts__job__card">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div class="company__icon">
-                                <img src="assets/img/home-1/company/apple.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="d-flex gap-3 mt-4 flex-wrap">
-                            <div class="d-flex gap-1 align-items-center">
-                                Localisation
-                            </div>
-                            <div class="d-flex gap-1 align-items-center">
-                                Domaine
-                            </div>
-                        </div>
-                        <div class="h6 job__title my-3">
-                            <a href="job-details-1.html" aria-label="job">
-                                    Senior UI Designer, Apple
-                                </a>
-                        </div>
-                        <p>Consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit mollitia eum ipsum.
-                        </p>
-                        <div class="job__tags d-flex flex-wrap gap-3 mt-4">
-                            <a href="#">Taille</a>
-                            <a href="#"> Type Collaboration</a>
-                            <a style="background-color:var(--rts-primary); color: white;" href="#">Voir Profil</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- single job end -->
-                <!-- single job -->
-                <div class="col-lg-6 col-xl-4 col-md-6">
-                    <div class="rts__job__card">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <div class="company__icon">
-                                <img src="assets/img/home-1/company/apple.svg" alt="">
-                            </div>
-                        </div>
-                        <div class="d-flex gap-3 mt-4 flex-wrap">
-                            <div class="d-flex gap-1 align-items-center">
-                                Localisation
-                            </div>
-                            <div class="d-flex gap-1 align-items-center">
-                                Domaine
-                            </div>
-                        </div>
-                        <div class="h6 job__title my-3">
-                            <a href="job-details-1.html" aria-label="job">
-                                    Senior UI Designer, Apple
-                                </a>
-                        </div>
-                        <p>Consectetur adipisicing elit. Possimus aut mollitia eum ipsum fugiat odio officiis odit mollitia eum ipsum.
-                        </p>
-                        <div class="job__tags d-flex flex-wrap gap-3 mt-4">
-                            <a href="#">Taille</a>
-                            <a href="#"> Type Collaboration</a>
-                            <a style="background-color:var(--rts-primary); color: white;" href="#">Voir Profil</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- single job end -->
+
+            <!-- Brands container -->
+            <div id="brands-container" class="row g-30 wow animated fadeInUp" data-wow-delay=".0s">
+                <!-- Brand cards will be loaded dynamically here -->
             </div>
+
+            <!-- Pagination Links -->
+            <div id="pagination-container">
+                <!-- Pagination links will be loaded dynamically here -->
+            </div>
+
         </div>
     </section>
+
+    <script>
+        $(document).ready(function() {
+            // Function to fetch and display brands
+            function fetchBrands(url = "") {
+                // Default to current URL if no URL is provided
+                if (!url) {
+                    url = window.location.href;
+                }
+
+                // AJAX request to fetch brand data and pagination
+                $.ajax({
+                    url: url,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(response) {
+                        // Update the brands container with brand data
+                        var brandHtml = '';
+                        $.each(response.brands, function(index, brand) {
+                            brandHtml += `
+                                <div class="col-lg-6 col-xl-4 col-md-6">
+                                    <div class="rts__job__card">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div class="company__icon">
+                                                <img src="${brand.logo_image}" alt="${brand.brandName}">
+                                            </div>
+                                        </div>
+                                        <div class="d-flex gap-3 mt-4 flex-wrap">
+                                            <div class="d-flex gap-1 align-items-center">
+                                                ${brand.brandLocalisation ?? 'Localisation'}
+                                            </div>
+                                            <div class="d-flex gap-1 align-items-center">
+                                                ${brand.sector_name ?? 'Domaine'}
+                                            </div>
+                                        </div>
+                                        <div class="h6 job__title my-3">
+                                            <a href="${brand.show_url}" aria-label="job">
+                                                ${brand.brandName}
+                                            </a>
+                                        </div>
+                                        <p>${brand.brandDescription}</p>
+                                        <div class="job__tags d-flex flex-wrap gap-3 mt-4">
+                                            <a href="#">${brand.brandSize}</a>
+                                            <a href="#">${brand.collaboration_type}</a>
+                                            <a style="background-color:var(--rts-primary); color: white;" href="${brand.show_url}">
+                                                Voir Profil
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>`;
+                        });
+
+                        // Insert new brand data into the container
+                        $('#brands-container').html(brandHtml);
+
+                        // Update the pagination links
+                        $('#pagination-container').html(response.pagination);
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('Error:', error);
+                    }
+                });
+            }
+
+            // Initial call to fetch brands when page is loaded
+            fetchBrands();
+
+            // Handle pagination link click
+            $(document).on('click', '.pagination a', function(e) {
+                e.preventDefault(); // Prevent default anchor behavior (page refresh)
+                var url = $(this).attr('href'); // Get the URL from the clicked pagination link
+                fetchBrands(url); // Fetch brands for the new page
+            });
+        });
+    </script>
+
     <!-- current open position end -->
 
     <!-- funfact section -->

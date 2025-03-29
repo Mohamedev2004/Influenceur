@@ -4,10 +4,17 @@
 
 <!-- content area -->
 <div class="dashboard__content d-flex">
-        
+
         <div class="dashboard__right">
             <div class="dash__content ">
 
+                @if (auth()->user()->status === 'Inactive')
+                    <div id="alert-border-1" class="flex items-center p-4 mb-4 text-blue-800 border-t-4 border-blue-300 bg-blue-50 dark:text-blue-400 dark:bg-gray-800 dark:border-blue-800" role="alert">
+                        <div class="ms-3 text-sm font-medium">
+                            Votre compte n'est pas encore activé. Nous vous contacterons dès que possible.
+                        </div>
+                    </div>
+                @else
                 <div class="my__profile__tab radius-16 bg-white">
                     <nav>
                         <div class="nav nav-tabs">
@@ -46,7 +53,7 @@
                                         <label for="phone">Phone</label>
                                         <input type="text" id="phone" placeholder="+880171234567" required>
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="row row-cols-sm-2 row-cols-1 g-3">
@@ -97,10 +104,11 @@
                         </div>
                         <button class="boutton" type="submit">Enregistrer</button>
                     </form>
-                    
-                </div>
 
-                
+                </div>
+                @endif
+
+
             </div>
             <div class="d-flex justify-content-center mt-30">
                 <p class="copyright" style="font-size: 15px !important;">Copyright © 2025 All Rights Reserved by cocollab</p>
@@ -113,7 +121,7 @@
 
 
     <x-canva />
-    
+
 
 
 
