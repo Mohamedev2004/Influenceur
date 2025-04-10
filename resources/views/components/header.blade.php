@@ -52,7 +52,7 @@
                                 <a href="{{route('login')}}" class="small__btn d-none d-sm-flex no__fill__btn border-6 font-xs">Se Connecter</a>
                             @endguest
 
-                            <button class="d-md-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas"><i class="fa-sharp fa-regular fa-bars"></i></button>
+                            <button class="d-md-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas"><i class="fa-solid fa-bars"></i></button>
                         </div>
                     </div>
                 </div>
